@@ -21,6 +21,7 @@ from rest_framework.routers import DefaultRouter
 from restaurant.views import BookingViewSet
 router = DefaultRouter()
 router.register(r'tables', BookingViewSet)
+from restaurant import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -28,4 +29,5 @@ urlpatterns = [
     path('restaurant/booking/', include(router.urls)),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.authtoken')),
+    path('', views.index, name='index'),
 ]
